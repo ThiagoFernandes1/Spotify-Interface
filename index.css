@@ -16,7 +16,7 @@ body {
     font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
     max-height: 100vh;
     height: 100vh;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 
@@ -27,16 +27,17 @@ body {
 
 .left {
     background-color: black;
-    position: relative;
+    position: fixed;
     width: 300px;
-    left: 0;
-    bottom: 0;
     top: 0;
+    left: 0;
+    bottom: var(--footer-height);
     font-size: 16px;
     font-weight: 500;
     padding: 20px;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .menu {
@@ -114,14 +115,15 @@ body {
 
 
 .container {
-    display: flex;
-    flex-direction: row;
+    display: block;
+    margin-left: 300px;
     height: calc(100vh - var(--footer-height)) !important;
 }
 
 
 .right {
-    width: 100%;
+    margin-left: 300px;
+    width: calc(100% - 300px);
 }
 
 
@@ -254,10 +256,11 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 
 }
 
 .playlist-songs-container {
-    height: 1000px;
+    max-height: calc(100vh - 420px);
     padding: 20px;
     background: rgb(95,95,95);
-background: linear-gradient(180deg, rgba(95,95,95,1) 0%, rgba(18,18,18,1) 22%, rgba(18,18,18,1) 100%);
+    background: linear-gradient(180deg, rgba(95,95,95,1) 0%, rgba(18,18,18,1) 22%, rgba(18,18,18,1) 100%);
+    overflow-y: auto;
 }
 
 .playlist-buttons-download, .playlist-buttons-three-dot {
@@ -356,11 +359,23 @@ background: linear-gradient(180deg, rgba(95,95,95,1) 0%, rgba(18,18,18,1) 22%, r
     align-items: center;
     padding: 20px;
     background-color: #181818;
-    position: absolute;
+    position: fixed;
     bottom:0;
+    left: 0;
     width: 100%;
     height: var(--footer-height);
+    z-index: 40;
 }
+
+/* make interactive controls clickable inside Electron (no-drag) */
+button, input[type=range], input, a, .song-row, .menu ul li a {
+    -webkit-app-region: no-drag;
+    -webkit-user-select: text;
+    cursor: pointer;
+}
+
+.song-row:hover { background: rgba(255,255,255,0.03); }
+.song-row.active { background: rgba(29,185,84,0.08); color: white; }
 
 .footer-player-left-like svg path {
     fill: var(--spotify-green);

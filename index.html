@@ -251,12 +251,10 @@
                             </td>
                             <td class="song-album">Fein</td>
                             <td class="song-date-added">May 31, 2022</td>
-                            <td class="song-duration">
-                                3:26
-                            </td>
+                            <td class="song-duration">3:26</td>
                         </tr>
 
-                        <tr>
+                        <tr class="song-row" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-duration="206">
                             <td>2</td>
                             <td class="song-title">
                                 <div class="song-image">
@@ -269,10 +267,10 @@
                             </td>
                             <td class="song-album">FEIN</td>
                             <td class="song-date-added">May 31, 2022</td>
-                            <td>
-                            </td>
+                            <td class="song-duration">3:20</td>
                         </tr>
-                        <tr>
+
+                        <tr class="song-row" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-duration="200">
                             <td>3</td>
                             <td class="song-title">
                                 <div class="song-image">
@@ -282,13 +280,13 @@
                                    <div class="song-name">Fein</div>
                                     <div class="song-artist">TRAVIS SCOTT</div>
                                 </div>
-                            </td>a
+                            </td>
                             <td class="song-album">FEIN</td>
                             <td class="song-date-added">May 31, 2022</td>
-                            <td>
-                            </td>
+                            <td class="song-duration">3:30</td>
                         </tr>
-                        <tr>
+
+                        <tr class="song-row" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-duration="195">
                             <td>4</td>
                             <td class="song-title">
                                 <div class="song-image">
@@ -301,10 +299,10 @@
                             </td>
                             <td class="song-album">Fein</td>
                             <td class="song-date-added">May 31, 2022</td>
-                            <td>
-                            </td>
+                            <td class="song-duration">3:15</td>
                         </tr>
-                        <tr>
+
+                        <tr class="song-row" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-duration="180">
                             <td>5</td>
                             <td class="song-title">
                                 <div class="song-image">
@@ -317,8 +315,7 @@
                             </td>
                             <td class="song-album">Fein</td>
                             <td class="song-date-added">May 31, 2022</td>
-                            <td>
-                            </td>
+                            <td class="song-duration">3:00</td>
                         </tr>
                     </table>
                 </div>
@@ -329,8 +326,8 @@
     <div class="footer-player">
         <div class="footer-player-left">
             <div class="footer-player-left-song">
-                <div class="footer-player-left-song-name">Fein</div>
-                <div class="footer-player-left-song-artist">TRAVIS </div>
+                <div id="footerSongName" class="footer-player-left-song-name">Fein</div>
+                <div id="footerSongArtist" class="footer-player-left-song-artist">TRAVIS</div>
             </div>
             <div class="footer-player-left-like">
                 <img src="assets/FiiledLike.svg" alt="" class="spotify-color" style="height: 18px; width: 18px;">
@@ -339,19 +336,17 @@
         <div class="footer-player-middle">
             <div class="footer-player-middle-buttons">
                 <img src="assets/Shuffle.svg" alt="" class="gray-filtered">
-                <img src="assets/Previous.svg" alt="" class="gray-filtered">
-                <span class="pause-button">
-                    <img src="assets/Pause.svg" alt="">
-                </span>
-                <img src="assets/Next.svg" alt="" class="gray-filtered">
+                <img id="prevBtn" src="assets/Previous.svg" alt="" class="gray-filtered">
+                <button id="playPauseBtn" class="pause-button"><img id="playPauseIcon" src="assets/Pause.svg" alt=""></button>
+                <img id="nextBtn" src="assets/Next.svg" alt="" class="gray-filtered">
                 <img src="assets/Repeat.svg" alt="" class="gray-filtered">
             </div>
             <div class="footer-player-middle-slider">
-                <div class="player-time">1:33</div>
+                <div id="currentTime" class="player-time">0:00</div>
                 <div class="player-slider">
-                    <input type="range" min="1" max="100" value="30">
+                    <input id="progress" type="range" min="0" max="100" value="0">
                 </div>
-                <div class="player-time">4:34</div>
+                <div id="durationTime" class="player-time">0:00</div>
             </div>
         </div>
         <div class="footer-player-right">
@@ -361,12 +356,13 @@
                 <img src="assets/Connect to a device.svg" class="filtered-img" alt="">
                 <img src="assets/Volume.svg" class="filtered-img" alt="">
                 <div class="player-slider" style="margin-right: 20px; width: 200px;">
-                    <input type="range" min="1" max="100" value="30" style="width:75px; position: relative; top:-5px;">
+                    <input id="volume" type="range" min="0" max="1" step="0.01" value="0.3" style="width:75px; position: relative; top:-5px;">
                 </div>
                 <img src="assets/Full screen.svg" class="filtered-img" alt="">
             </div>
         </div>
     </div>
+    <script src="renderer.js"></script>
 </body>
 
 </html>
