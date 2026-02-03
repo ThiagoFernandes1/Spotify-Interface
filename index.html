@@ -15,19 +15,19 @@
             <div class="menu">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="#" data-page="home">
                             <img src="assets/Home.svg" alt="" class="gray-filtered">
                             <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-page="search">
                             <img src="assets/Search.svg" alt="" class="gray-filtered">
                             <span>Search</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" data-page="library">
                             <img src="assets/YourLibrary.svg" alt="" class="gray-filtered">
                             <span>Your Library</span>
                         </a>
@@ -164,6 +164,44 @@
 
         </div>
         <div class="right">
+            <!-- Home page -->
+            <div id="page-home" class="page" style="display:none; padding:20px;">
+                <h2 style="color:white; margin-top:0;">Good evening</h2>
+                <div style="display:flex; gap:16px; flex-wrap:wrap;">
+                    <div style="width:180px; height:180px; background:#222; border-radius:8px; display:flex;align-items:flex-end;padding:12px;">
+                        <div style="color:white; font-weight:700">Made for you</div>
+                    </div>
+                    <div style="width:180px; height:180px; background:#222; border-radius:8px; display:flex;align-items:flex-end;padding:12px;">
+                        <div style="color:white; font-weight:700">Release Radar</div>
+                    </div>
+                    <div style="width:180px; height:180px; background:#222; border-radius:8px; display:flex;align-items:flex-end;padding:12px;">
+                        <div style="color:white; font-weight:700">Top Hits</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search page -->
+            <div id="page-search" class="page" style="display:none; padding:20px;">
+                <h2 style="color:white; margin-top:0;">Search</h2>
+                <div style="margin-top:10px;">
+                    <input id="searchInput" placeholder="Search for songs, artists, albums" style="width:60%; padding:10px; border-radius:6px; border:none;" />
+                </div>
+                <div id="searchResults" style="margin-top:20px; color:#CACACA;">Type to filter the current playlist tracks.</div>
+            </div>
+
+            <!-- Library page -->
+            <div id="page-library" class="page" style="display:none; padding:20px;">
+                <h2 style="color:white; margin-top:0;">Your Library</h2>
+                <ul id="libraryList" style="list-style:none; padding:0; color:#CACACA;">
+                    <li>Liked Songs</li>
+                    <li>Top 50</li>
+                    <li>Road Trip</li>
+                    <li>Chill Vibes</li>
+                </ul>
+            </div>
+
+            <!-- Playlist page (existing content) -->
+            <div id="page-playlist" class="page" style="display:block;">
             <div class="playlist-header">
                 <div class="playlist-top">
                     <div class="playlist-arrows">
